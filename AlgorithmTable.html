@@ -1,27 +1,63 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
 <head>
-<meta charset='UTF-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0'>
-<title>Algorithm Table</title>
-styles.css
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 <table>
-<tr>
-<th>Algorithmic Approach</th>
-<th>When to Use</th>
-<th>Description</th>
-<th>Time Complexity</th>
-<th>Space Complexity</th>
-</tr>
-<tr>
-<td>Greedy Approach</td>
-<td>Locally optimal choices for global optimum</td>
-<td>Requires greedy choice property & optimal substructure</td>
-<td>Varies (e.g., O(N log N))</td>
-<td>Varies</td>
-</tr>
-</table>
-</body>
-</html>
+    <tr>
+       <th>Algorithmic Approach</th>
+       <th>When to Use (Quick Look / Exam Hints)</th>
+       <th>Description & Key Properties</th>
+       <th>Time Complexity (Worst, Avg/Best)</th>
+       <th>Space Complexity (Worst, Avg/Best)</th>
+    </tr>
+    <tr>
+       <td>Greedy Approach</td>
+       <td>Locally Optimal Choices: Problem asks for an optimal solution and a simple, 
+       immediate choice at each step seems best 
+       and proves correct for the whole problem (e.g., making change, scheduling).</td>
+       <td>"Makes a sequence of locally optimal choices at each step. 
+       Requires the **greedy choice property** 
+       and **optimal substructure** to guarantee a globally optimal solution.</td>
+       <td>Varies greatly (e.g., O(N log N) for Huffman, O(E log V) for Kruskal's)</td>
+       <td>Varies greatly (e.g., O(V) for Prim's, O(E) for Kruskal's)</td>
+    </tr>
+    <tr>   
+       <td>Backtracking</td>
+       <td>Explore All Possibilities / Constraint Satisfaction: 
+       Need to find *all* or *any* solutions within a large solution space defined by constraints. 
+       Can build a partial solution and test if it's feasible.</td>
+       <td>A systematic trial-and-error search using Depth-First Search (DFS) to explore a decision tree. Prunes branches that violate constraints 
+(\"backtracks\").</td>
+       <td>Often **Exponential** (O(K^N) or O(N!)) due to exploring many paths</td>
+       <td>Depends on recursion depth, typically O(N) to O(N^2)</td>
+    </tr>   
+    <tr>   
+       <td>Divide and Conquer</td>
+       <td>Independent Subproblems: Problem can be broken into *independent* (non-overlapping) smaller subproblems of the same type, solved separately, and results easily combined.</td>
+       <td>Breaks problem into non-overlapping subproblems, solves recursively, and combines results.</td>
+       <td>Avg/Best: O(N log N) (Merge Sort, Quick Sort). Worst: O(N^2) (Quick Sort worst case)</td>
+       <td>Worst: O(N) (Merge Sort). Avg/Best: O(log N) (Quick Sort stack)</td>
+    </tr>
+    <tr>   
+       <td>Dynamic Programming</td>
+       <td>Overlapping Subproblems & Optimization: Problem has **overlapping subproblems** (same subproblems solved repeatedly) and requires an *optimal* solution (e.g., longest, shortest, maximum, minimum).</td>
+       <td>Solves each subproblem only once and stores results (memoization/tabulation) to avoid redundant computation. Guaranteed to find the optimal solution.</td>
+       <td>Pseudo-polynomial O(N · W) for Knapsack; generally polynomial O(N^K)</td>
+       <td>Often related to the DP table size, e.g., O(N · W) for Knapsack</td>
+     </tr>
+     <tr>  
+       <td>Search and Traversal</td>
+       <td>Graph/Tree Navigation: Need to visit every node (traversal) or find a specific path/node (search) in a graph or tree structure (e.g., maze solving, social network analysis).</td>
+       <td>Systematic methods for exploring connections within data structures. DFS/BFS are core strategies.</td>
+       <td>O(V+E) for graphs; O(log N) for binary search in sorted arrays.</td>
+       <td>O(V) (visited tracking), O(W) for BFS queue, O(H) for DFS stack</td>
+     </tr>
+ </table>
+ </body>
+ </html>  
